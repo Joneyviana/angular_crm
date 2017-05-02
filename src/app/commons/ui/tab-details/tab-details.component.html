@@ -1,0 +1,14 @@
+<panel [resource]="resource" [title]="title">
+</panel>
+<br>
+<button pButton  type="button" label="editar" (click)="editar()"></button>
+<button pButton class="ui-button-danger"  type="button" label="deletar" (click)="showDialog()"></button>
+<p-dialog [(visible)]="display">
+    <p-header>
+       {{header}}
+    </p-header>
+    <p>{{message}}</p>
+    <button pButton  type="button" label="OK" (click)="deletar()"></button>
+    <button pButton class="ui-button-danger"  type="button" label="cancel" (click)="fadeDialog()"></button>
+   
+</p-dialog>

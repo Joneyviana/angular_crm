@@ -1,0 +1,40 @@
+<p-dialog  header="Login" [(visible)]="login" [(closable)]="closable" [(draggable)]="draggable"
+[width]="300">
+  <div class="fb-icon-bg"><span class="fa fa-facebook"></span></div>
+  <div class="fb-bg" (click)="loginFacebook()"></div>
+  <div class="g-icon-bg"><span class="fa fa-google"></span></div>
+  <div class="g-bg" (click)="loginGoogle()"></div>
+   <div [formGroup]="loginForm">
+  <h4>Login</h4>
+  <input type="email" [formControl]="loginForm.controls['email']" pInputText/>
+  <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="alert alert-danger">Você deve informar o email.</div>
+  <div *ngIf="loginForm.controls['email'].hasError('email') && loginForm.controls['email'].touched" class="alert alert-danger">O Formato de email não é valido.</div>
+  <h4>Password</h4>
+  <input type="password" [formControl]="loginForm.controls['password']" pInputText/>
+  <div   *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">Você deve informar a senha.</div>
+  </div>
+  <h4></h4>
+  <button  pButton type="button" (click)="loginPassword()" label="Login"></button>
+   
+  <p>
+    <a id="newAccount"(click)="changeModal()">Create account</a>
+  </p>
+</p-dialog><p-dialog header="Create Account" [(visible)]="signUp" [(closable)]="closable" [(draggable)]="draggable"
+[width]="300">
+  <div [formGroup]="signUpForm">
+  <h4>Account</h4>
+  <input type="email" [formControl]="signUpForm.controls['email']" pInputText/>
+  <div *ngIf="signUpForm.controls['email'].hasError('required') && signUpForm.controls['email'].touched" class="alert alert-danger">Você deve informar o email.</div>
+  <div *ngIf="signUpForm.controls['email'].hasError('email') && signUpForm.controls['email'].touched" class="alert alert-danger">O Formato de email não é valido.</div>
+  <h4>Password</h4>
+  <input pPassword [formControl]="signUpForm.controls['password']" type="password"/>
+  <div *ngIf="signUpForm.controls['password'].hasError('required') && signUpForm.controls['password'].touched" class="alert alert-danger">Você deve informar a senha.</div>
+  <h4>Comfirmar Password</h4>
+  <input pPassword [formControl]="signUpForm.controls['confirmarPassword']" type="password"/>
+  <div *ngIf="signUpForm.controls['confirmarPassword'].hasError('required') && signUpForm.controls['confirmarPassword'].touched" class="alert alert-danger">Você deve informar a senha.</div>
+  <div *ngIf="signUpForm.controls['confirmarPassword'].hasError('comparePasswords') && signUpForm.controls['confirmarPassword'].touched" class="alert alert-danger">As senhas não são iguais</div>
+  </div>
+  <h4></h4>
+  <br>
+  <button pButton type="button" (click)="createUser()" label="Create Account"></button>
+</p-dialog>

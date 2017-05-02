@@ -1,0 +1,19 @@
+<p-dataTable 
+  [value]="clients" [rows]="10" 
+  [paginator]="true" selectionMode="single" 
+  [(selection)]="selectedClient"
+  (onRowSelect)="onRowSelect($event)"
+  scrollable="true">
+
+    <p-header>Clients</p-header>
+    <p-column field="nome" header="Nome" [style]="{'width':'180px'}"  id="search" [filter]="true" filterPlaceholder="Search"></p-column>
+    <p-column field="email" header="Email" [style]="{'width':'180px'}"></p-column>
+    <p-column field="cep" header="Cep" [style]="{'width':'100px'}"></p-column>
+    <p-column field="uf" header="UF" [style]="{'width':'30px'}"></p-column>
+    <p-column field="localidade" header="Localidade" [style]="{'width':'180px'}"></p-column>
+    <p-column field="bairro" header="Bairro" [style]="{'width':'180px'}"></p-column>
+    <p-column field="logradouro" header="logradouro" [style]="{'width':'180px'}"></p-column>
+    <p-column field="complemento" header="Complemento" [style]="{'width':'100px'}" ></p-column>
+    <p-column field="data_de_nascimento" header="Data de Nascimento" [style]="{'width':'110px'}"></p-column>
+    <p-column field="tel" header="Tel" [style]="{'width':'70px'}"></p-column>
+</p-dataTable>

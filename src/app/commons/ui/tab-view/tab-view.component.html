@@ -1,0 +1,12 @@
+<div class="ui-tabview ui-widget ui-widget-content ui-corner-all ui-tabview-top">
+
+<ul class="ui-tabview-nav ui-widget-header ui-corner-all ui-helper-reset ui-helper-clearfix">
+  <li *ngFor="let item of items; let i = index" 
+  [ngClass]="{'ui-state-default ui-corner-top':true,'ui-tabview-selected ui-state-active':i==activeIndex}" (click)="onTabChange(i)">
+  <a>
+  <span class="ui-tabview-title">{{item.label}}</span>
+  </a>
+  <span *ngIf="item.closable" class="ui-tabview-close fa fa-close" (click)="handleClose($event,i)"></span>
+  </li>
+</ul>
+</div>

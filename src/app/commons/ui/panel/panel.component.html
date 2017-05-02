@@ -1,0 +1,11 @@
+<p-panel>
+  <p-header *ngIf="resource !=null">
+    {{resource[title] | uppercase}}
+  </p-header>
+  <div *ngFor="let key of keys();" class="ui-grid ui-grid-responsive ui-fluid">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">{{key}}: </div>
+      <div class="ui-grid-col-10">{{resource[key]}}</div>
+    </div>
+  </div>
+</p-panel>

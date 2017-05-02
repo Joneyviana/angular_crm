@@ -1,0 +1,12 @@
+<p-dataTable 
+  [value]="accounts" [rows]="10" 
+  [paginator]="true" selectionMode="single" 
+  [(selection)]="selectedAccount"
+  (onRowSelect)="onRowSelect($event)">
+
+    <p-header>Contas</p-header>
+    <p-column field="proprietario" header="Proprietario" [style]="{'width':'180px'}"  id="search" [filter]="true" filterPlaceholder="Search"></p-column>
+    <p-column field="status" header="Status" [style]="{'width':'30px'}"></p-column>
+    <p-column field="valor" header="Valor" [style]="{'width':'180px'}"></p-column>
+    <p-column field="data_de_vencimento" header="Data de Vencimento" [style]="{'width':'110px'}"></p-column>
+</p-dataTable>

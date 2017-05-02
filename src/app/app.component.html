@@ -1,0 +1,20 @@
+ <nav *ngIf="mostrarMenu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+        </div>
+          <ul class="nav navbar-nav">
+            <li routerLinkActive="active"><a routerLink="clients">Clients</a></li>
+            <li routerLinkActive="active"><a routerLink="accounts">Accounts</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a (click)="logout()">Logout</a></li>
+          </ul>
+      </div>
+    </nav>
+
+<div class="container">
+<br>
+<br>
+<br>
+<router-outlet></router-outlet>
+</div>

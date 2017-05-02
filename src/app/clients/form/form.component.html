@@ -1,0 +1,71 @@
+<div [formGroup]="form">
+<div class="ui-grid-row">
+<div class="ui-grid-col-3">
+<h4>Nome</h4>
+<input id="name" type="text"  formControlName="nome" pInputText  />
+<div *ngIf="form.controls['nome'].hasError('required') && form.controls['nome'].touched" class="alert alert-danger">Você deve informar o nome.</div>
+</div>
+<div class="ui-grid-col-3">
+<h4> Email</h4>
+<input id="email" type="text"   formControlName="email" pInputText  /> 
+<div *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="alert alert-danger">Você deve informar o email.</div>
+<div *ngIf="form.controls['email'].hasError('email') && form.controls['email'].touched" class="alert alert-danger">Formato de email invalido.</div>
+</div>
+</div>
+<div class="ui-grid-row">
+  <div class="ui-grid-col-3">
+    <h4>Cep</h4>
+    <span>
+    <input id="cep" type="text"   formControlName="cep" #input pInputText  />
+    <button type="button" pButton icon="fa-search" (click)= "searchCep(input.value)"></button>
+    <div *ngIf="form.controls['cep'].hasError('required') && form.controls['cep'].touched" class="alert alert-danger">Você deve informar o cep.</div> 
+    </span>
+  </div>
+  <div class="ui-grid-col-1">
+    <h4>UF</h4>
+    <p-dropdown [options]="estados.uf" formControlName="uf"></p-dropdown>
+    <div *ngIf="form.controls['uf'].hasError('required') && form.controls['uf'].touched" class="alert alert-danger">Você deve selecionar UF</div>
+  </div>
+</div>
+<div class="ui-grid-row">
+  <div class="ui-grid-col-3">
+    <h4>Logradouro</h4>
+    <input id="logradouro" type="text"  formControlName="logradouro" pInputText  />
+    <div *ngIf="form.controls['logradouro'].hasError('required') && form.controls['logradouro'].touched" class="alert alert-danger">Você deve informar o logradouro.</div> 
+  </div>
+<div class="ui-grid-col-3">
+    <h4>Complemento</h4>
+    <input id="complemento" type="text"  formControlName="complemento" pInputText  />
+  </div>
+</div>
+<div class="ui-grid-row">
+  <div class="ui-grid-col-3">
+    <h4>Bairro</h4>
+    <input id="bairro" type="text"  formControlName="bairro" pInputText  />
+    <div *ngIf="form.controls['bairro'].hasError('required') && form.controls['bairro'].touched" class="alert alert-danger">Você deve informar o Bairro</div> 
+  </div>
+<div class="ui-grid-col-3">
+    <h4>Localidade</h4>
+    <input id="localidade" type="text" formControlName="localidade" pInputText  />
+    <div *ngIf="form.controls['localidade'].hasError('required') && form.controls['localidade'].touched" class="alert alert-danger">Você deve informar a localidade.</div> 
+  </div>
+</div>
+<div class="ui-grid-row">
+<div class="ui-grid-col-3">
+  <h4>Data de Nascimento</h4>
+  <p-inputMask  formControlName="data_de_nascimento" mask="99/99/9999"></p-inputMask>
+  <div *ngIf="form.controls['data_de_nascimento'].hasError('required') && form.controls['data_de_nascimento'].touched" class="alert alert-danger">Você deve informar a data de nascimento.</div> 
+</div>
+<div class="ui-grid-col-3">
+  <h4>Tel</h4>
+  <p-inputMask id="tel" type="text" formControlName="tel" size="20" mask="(99)9999-9999"></p-inputMask>
+  <div *ngIf="form.controls['tel'].hasError('required') && form.controls['tel'].touched" class="alert alert-danger">Você deve informar o telefone.</div>
+</div>
+</div>
+<div class="ui-grid-row">
+<br>
+<div class="ui-grid-col-3">
+  <button type="button" [disabled]="!form.valid" (click)="onSubmit()"class="btn btn-primary">Salvar</button>
+</div>
+</div>
+</div>
